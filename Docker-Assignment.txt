@@ -1,0 +1,90 @@
+Docker installation : https://docs.docker.com/engine/install/ubuntu/
+
+Docker Assignment 1 
+
+  sudo apt-get update
+   16  sudo apt install docker.io -y 
+   19  docker --version 
+   21  sudo docker pull ubuntu
+   22  sudo docker images 
+
+   26  sudo docker run -itd --name c1 -p 80:80 ubuntu
+   27  sudo docker ps 
+   33  sudo docker exec -it c1 bash
+
+     apt update 
+    2  apt install apache2 -y 
+    3  which apache2 
+    4  service apache2 start 
+    5  history 
+    
+    Docker Assignment 2 0
+    
+    sudo docker ps 
+   37  sudo docker commit 962b9f4d90f8 assignment2
+   38  sudo docker images 
+   39  sudo docker run -itd --name c2 -p 81:80 assignment2
+   40  sudo docker ps 
+   41  sudo docker exec -it c2 bash 
+    
+     which apache2
+    8  service apache2 status 
+    9  service apache2 start
+    
+    
+        Docker Assignment 3
+        
+      Previous Machine 
+      
+        sudo docker ps 
+   44  clear
+   45  sudo docker images 
+   46  sudo docker tag assignment2 amanintellipaat/assignment2
+   47  sudo docker images 
+   48  sudo docker push amanintellipaat/assignment2
+   49  sudo docker login 
+   50  sudo docker push amanintellipaat/assignment2
+   51  history 
+
+New Machine 
+( create a new machine in AWS with all traffic rule in security group)
+ sudo apt update 
+    2  sudo apt install docker.io -y 
+    3  docker --version 
+    4  clear
+    5  sudo docker images 
+    6  sudo docker run -itd --name c2 -p 80:80 amanintellipaat/assignment2
+    7  sudo docker images 
+    9  sudo docker ps 
+    
+    sudo docker exec -it c2 bash 
+    service apache2 start
+    
+    
+    Assignment 4 
+    
+    sudo nano Dockerfile
+    
+    FROM ubuntu
+RUN apt-get update 
+RUN apt-get install apache2 -y 
+ENTRYPOINT apachectl -D FOREGROUND
+   56  cat Dockerfile 
+   57  sudo docker build . -t a4
+   58  cat Dockerfile 
+   59  sudo docker images 
+   60  sudo docker run -itd --name c4 -p 82:80 a4
+   61  sudo docker ps 
+   
+   Assignment 5 
+
+ sudo nano index.html 
+   65  sudo nano Dockerfile 
+   FROM ubuntu
+RUN apt-get update 
+RUN apt-get install apache2 -y 
+COPY index.html /var/www/html/
+   66  cat index.html 
+   67  sudo docker build . -t a5
+   68  sudo docker run -itd -p 84:80 a5 
+    

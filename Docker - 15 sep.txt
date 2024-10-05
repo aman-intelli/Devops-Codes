@@ -1,0 +1,67 @@
+To install Gitbash in Windows Machine 
+
+https://git-scm.com/download/win
+
+To Download Mobaxterm ( For connecting Machine)
+
+https://mobaxterm.mobatek.net/download.html
+
+Github Link : https://github.com/aman-intelli/website.git
+
+Dockerhub image : amanintellipaat/websiteimg
+
+Test Code : 
+
+git clone https://github.com/aman-intelli/website.git
+cd website 
+sudo nano Dockerfile
+FROM ubuntu
+RUN apt update
+RUN apt install apache2 -y
+ADD . /var/www/html
+ENTRYPOINT apachectl -D FOREGROUND
+sudo docker build . -t websiteimg
+sudo docker run -itd -p 81:80 websiteimg
+sudo docker login 
+sudo docker tag websiteimg <dhubusername>/websiteimg>
+sudo docker push <dhubusername>/websiteimg
+
+Prod Code: 
+
+    2  sudo apt update && sudo apt install docker.io -y
+    3  clear
+    4  docker --version
+    5  sudo docker pull amanintellipaat/websiteimg
+    6  sudo docker run -itd --name prod -p 841:80 amanintellipaat/websiteimg
+    
+To install Maven 
+
+sudo apt update 
+sudo apt install maven 
+
+To check : mvn --version
+
+To install Java: sudo apt update && sudo apt install openjdk-11-jdk -y
+To install Jenkins : https://www.jenkins.io/doc/book/installing/linux/#debianubuntu
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+
+or 
+
+sudo nano a.sh 
+
+Paste
+
+sudo wget -O /usr/share/keyrings/jenkins-keyring.asc \
+  https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
+echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc]" \
+  https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
+  /etc/apt/sources.list.d/jenkins.list > /dev/null
+sudo apt-get update
+sudo apt-get install jenkins -y 
+
+bash a.sh
+
+
+
+
+

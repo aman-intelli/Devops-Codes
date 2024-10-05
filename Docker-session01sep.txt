@@ -1,0 +1,44 @@
+To Install Docker
+
+sudo apt update && sudo apt install docker.io -y 
+or https://docs.docker.com/engine/install/ubuntu/
+
+Create a Dcokerhub Account : https://hub.docker.com/
+
+To pull ubuntu image 
+sudo docker pull ubuntu 
+
+To check images 
+sudo docker images 
+
+To create container 
+sudo docker run -itd -p 81:80 ubuntu 
+
+To check container 
+sudo docker ps 
+
+To get inside the container 
+sudo docker exec -it <container id/name> bash
+
+Inside Container
+
+To install apache2 
+   14  sudo apt update 
+   16  apt install apache2 -y 
+   17  apache2 --version 
+
+To start apache2 
+   21  service apache2 status 
+   22  service apache2 start
+   24  service apache2 status 
+
+To exit container 
+exit 
+
+To commit the container
+sudo docker commit containerid <new image name> 
+
+
+Complete Git and Docker 1,2 Assignment
+
+

@@ -1,0 +1,97 @@
+Docker Session - 14 Sept 2024
+
+To install Docker 
+
+sudo apt update 
+sudo apt install docker.io -y 
+docker --version
+
+To check docker images present in machine :   sudo docker images 
+To pull image: sudo docker pull ubuntu
+   11  sudo docker images 
+To run a container: sudo docker run -itd --name c1 -p 82:80 ubuntu 
+To get a list of running container: sudo docker ps 
+To stop container:  sudo docker stop c1 
+   16  sudo docker ps
+To  get a list of stop/running container:  sudo docker ps -a         
+   18  clear 
+To remove a container:  sudo docker rm c1
+   20  sudo docker ps -a 
+   21  sudo docker images 
+To remover a image: sudo docker rmi ubuntu 
+   23  sudo docker images 
+   
+   sudo docker run -itd --name c2 -p 81:80 ubuntu 
+   27  sudo docker ps 
+   28  sudo docker ps -a 
+   29  sudo docker image s
+   30  sudo docker images
+   31  clear
+   32  sudo docker exec -it c2 bash 
+   apt update 
+   apt install apache2 -y 
+   service apache2 start
+   33  clear
+To get a log of container: sudo docker log c2
+   35  sudo docker logs c2
+   36  clear
+To get a details of container: sudo docker inspect c2 
+   38  clear
+To get a details of image: sudo docker inspect ubuntu 
+   40  clear
+   41  sudo docker run --name c3 ubuntu 
+   42  sudo docker ps 
+   43  sudo docker run -itd --name c3 ubuntu 
+   44  sudo docker ps -a
+   45  sudo docker rm c3
+   46  sudo docker run -itd --name c3 ubuntu 
+   47  clear
+   48  sudo docker ps 
+To get a details of container: sudo docker stop c2 
+To stop forcefully:  sudo docker kill c3 
+   51  sudo docker ps 
+   52  sudo docker ps -a
+To start container:  sudo docker start c2
+   54  sudo docker start c3
+   55  clear
+   56  sudo docker ps 
+To re-start container:  sudo docker restart c2 
+   58  sudo docker exec -it c2 bash 
+   59  clear
+To pause all process inside the container:  sudo docker pause c2
+To unpause all process inside the container: sudo docker unpause c2
+To get stats of the container: sudo docker stats c2
+   63  clear
+To stop one process inside the container: sudo docker exec c2 service apache2 stop 
+   65  sudo docker exec c2 service apache2 start
+   To Commit : sudo docker commit c2 amanintellipaat/14sepimg
+   sudo docker commit c2 amanintellipaat/14sepimg
+   74  sudo docker images 
+   75  sudo docker login 
+   76  clear
+   77  sudo docker login 
+   78  sudo docker push amanintellipaat/14sepimg
+     
+   sudo nano Dockerfile
+   
+FROM ubuntu
+RUN apt update 
+RUN apt install apache2 -y
+ADD ./index.html /var/www/html
+ENTRYPOINT apachectl -D FOREGROUND
+
+   89  ls 
+   90  suo nano index.html 
+   91  sudo nano index.html 
+   92  sudo nano Dockerfile
+   93  clear
+   94  cat Dockerfile 
+   95  sudo nano Dockerfile
+   96  sudo docker build . -t customimg
+   97  sudo docker images 
+   98  clear
+   99  sudo docker images 
+  100  sudo docker ps 
+  101  sudo docker run -itd --name c4 -p 84:80 customimg
+  102  sudo docker ps
+   

@@ -24,6 +24,7 @@ This guide outlines the steps needed to set up a Kubernetes cluster using kubead
 
 Run the following commands on both the master and worker nodes to prepare them for kubeadm.
 =============================================================================================================
+sudo nano a.sh
 
 # disable swap
 sudo swapoff -a
@@ -75,6 +76,7 @@ sudo apt-get install -y jq
 sudo systemctl enable --now kubelet
 sudo systemctl start kubelet
 
+## Copy till above in a.sh file
 ---------------------------------------------------
 ## Execute ONLY on "Master Node"
 

@@ -11,7 +11,7 @@ sudo apt update
 Deployment: 
 
     kubectl create deployment nginx --image=nginx  --port=80
-   57  kubectl create deployment nginx --image=amanintellipaat/carvilla  --port=80
+  
    58  kubectl create deployment carvilla --image=amanintellipaat/carvilla  --port=80
 
 Service: 
